@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aplikasi Kasir Toko</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <div class="brand-title">🛒 APLIKASI KASIR TOKO</div>
+      <div class="brand-subtitle">Mudah • Cepat • Akurat</div>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="toolbar">
+      <label for="productSelect">Produk:</label>
+      <select id="productSelect" aria-label="Pilih produk"></select>
+      <label for="quantity">Jumlah:</label>
+      <input id="quantity" type="number" min="1" value="1">
+      <button id="addBtn" class="btn green">Tambah Barang</button>
+      <button id="removeBtn" class="btn red">Hapus Barang</button>
+      <button id="historyBtn" class="btn blue">Riwayat Transaksi</button>
+    </section>
+
+    <section class="table-wrap">
+      <table>
+        <thead><tr><th>Kode</th><th>Nama Barang</th><th>Harga</th><th>Jumlah</th><th>Subtotal</th></tr></thead>
+        <tbody id="cartBody"></tbody>
+      </table>
+      <p id="emptyMessage" class="empty">Belum ada barang dalam transaksi. Pilih produk lalu klik “Tambah Barang”.</p>
+    </section>
+
+    <section class="payment">
+      <div class="total-row">
+        <strong>TOTAL BELANJA:</strong>
+        <strong id="total" class="total">Rp0</strong>
+      </div>
+      <div class="pay-row">
+        <label for="payment">Uang Pembayaran (Rp):</label>
+        <input id="payment" type="number" min="0" placeholder="Masukkan uang pembayaran">
+      </div>
+      <div class="pay-row change-row">
+        <label>Kembalian:</label>
+        <strong id="change">Rp0</strong>
+      </div>
+      <div class="bottom-buttons">
+        <button id="payBtn" class="btn green large">Bayar</button>
+        <button id="newBtn" class="btn orange large">Transaksi Baru</button>
+      </div>
+      <p class="notice">Versi demo: data produk dan riwayat tersimpan di browser ini. Belum terhubung ke MySQL atau database online.</p>
+    </section>
+  </main>
+
+  <dialog id="historyDialog">
+    <div class="dialog-head"><h2>Riwayat Transaksi</h2><button id="closeHistory" class="btn red">Tutup</button></div>
+    <div id="historyContent"></div>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
